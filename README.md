@@ -33,8 +33,50 @@ selector.update(dt)
 **Dt**
 The delta time obtained via love.update. Required for animation sequence.
 
-selector.draw(width, height[, function1, function2])
+selector.draw(centerX, centerY[, function1, function2])
 ====================================================
 
+**Center X**
+The central point in the X axis in which the rectangles will be arranged.
+
+**Center Y**
+The central point in the Y axis in which the rectangles will be arranged.
+
+**Function 1** and **Function 2**
+Optional functions that draw, respectively, before and after the images. Requires the following arguments:
+
+function([x, y, width, height, selection, index])
+===========================
+
+**X**
+The X position of the selections rectangles.
+
+**Y**
+The Y position of the selections rectangles.
+
 **Width**
-The width of the area through which
+The width of the selections rectangles.
+
+**Height**
+The height of the selections rectangles.
+
+**Selection**
+The selection value of each rectangle.
+
+**Index**
+The index value of each rectangle (1 for selected item at the center, 2 for the one right above/below it, 3 for the one right above/below #2, etc.)
+
+selector.select(factor)
+=======================
+
+**Factor**
+A number to be added to the currently-selected item. Must be -1 or 1 only, where -1 decreases the selection and 1 increases it. Function returns the new selection value, based on the selector's previously-set selection and its limit.
+
+Aditional variables
+===================
+
+**selector.lockedscrolls**
+When ***true***, prevents users from changing the selection while the animation is playing, and when ***false*** allows users to uninterruptedly change selection. Defaults to true.
+
+**selector.color**
+A color table that is set while drawing the selector's images (if any). Defaults to white.
