@@ -53,7 +53,7 @@ function selector.select(i)
 	return selector.selection
 end
 
-function selector.draw(ww, wh, f1, f2)
+function selector.draw(cX, cY, f1, f2)
 	local xfact, yfact = math.cos(selector.angle), math.sin(selector.angle)
 	local pS = selector
 	local animfactor = pS.animspeed/pS.animmaxspeed --From 1 to 0
@@ -89,16 +89,16 @@ function selector.draw(ww, wh, f1, f2)
 				end
 				
 				if f2 then
-					f2(ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, w, h, sel, i)
+					f2(cX + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, cY + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, w, h, sel, i)
 				end
 				
 				love.graphics.setColor(pS.color)
 				if pS.imgs then
-					love.graphics.draw(pS.imgs[sel], ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, 0, w/pS.sizes[1][1], h/pS.sizes[1][2])
+					love.graphics.draw(pS.imgs[sel], cX + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, cY + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, 0, w/pS.sizes[1][1], h/pS.sizes[1][2])
 				end
 				
 				if f1 then
-					f1(ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, w, h, sel, i)
+					f1(cX + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, cY + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, w, h, sel, i)
 				end
 			end
 		end
