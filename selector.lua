@@ -12,11 +12,11 @@ local selector = {
 					color = {255, 255, 255, 255}
 				}
 
-function selector.load(sizes, spacing, anim, imgs, sel, maxsel, angle)
+function selector.load(sizes, spacing, imgs, anim, sel, maxsel, angle)
 	selector.sizes = sizes
 	selector.spacing = spacing
-	selector.animmaxspeed = anim or 1
 	selector.imgs = imgs
+	selector.animmaxspeed = anim or 1
 	selector.selection = sel or 1
 	selector.maxsel = maxsel or 1
 	selector.angle = angle or 0
