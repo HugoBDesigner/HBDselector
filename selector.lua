@@ -93,7 +93,9 @@ function selector.draw(ww, wh, f1, f2)
 				end
 				
 				love.graphics.setColor(pS.color)
-				love.graphics.draw(pS.imgs[sel], ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, 0, w/pS.sizes[1][1], h/pS.sizes[1][2])
+				if pS.imgs then
+					love.graphics.draw(pS.imgs[sel], ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, 0, w/pS.sizes[1][1], h/pS.sizes[1][2])
+				end
 				
 				if f1 then
 					f1(ww/2 + (x*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*xfact - w/2, wh/2 + (y*dir*psdir + pS.spacing/2 + dist*animfactor*psdir)*yfact - h/2, w, h, sel, i)
